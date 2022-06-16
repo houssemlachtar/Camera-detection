@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@keyframes loaders1 {
+    0% {
+        box-shadow: 4px 4px 6px 0 #fff, -4px -4px 6px 0 rgba(174, 174, 192, .2), inset -4px -4px 6px 0 #fff, inset 4px 4px 6px 0 rgba(174, 174, 192, .2);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        box-shadow: -4px -4px 6px 0 #fff, 4px 4px 6px 0 rgba(174, 174, 192, .2), inset 4px 4px 6px 0 #fff, inset -4px -4px 6px 0 rgba(174, 174, 192, .2);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        box-shadow: 4px 4px 6px 0 #fff, -4px -4px 6px 0 rgba(174, 174, 192, .2), inset -4px -4px 6px 0 #fff, inset 4px 4px 6px 0 rgba(174, 174, 192, .2);
+        animation-timing-function: ease-in;
+    }
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    bottom: 0;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: 0px 0px;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    background-color: #dfddddd8;
+    width: 100%;
+    height: 100%;
+}
+
+.input_video {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.input_video.selfie {
+    transform: scale(-1, 1);
+}
+
+.input_image {
+    position: absolute;
+}
+
+.canvas-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.output_canvas {
+    max-width: 100%;
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.control-panel {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.loading {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    backface-visibility: hidden;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.loading .neumo {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    background: #f0f0f3;
+    justify-content: center;
+    animation: loaders1 2s infinite;
+}
+
+.neumo:before,
+.neumo:after {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    background: #f0f0f3;
+}
+
+.neumo:before {
+    width: 70%;
+    height: 70%;
+    animation: loaders1 2.5s infinite;
+}
+
+.neumo:after {
+    width: 35%;
+    height: 35%;
+    animation: loaders1 3s infinite;
+}
+
+.loaded .loading {
+    opacity: 0;
+}
+
+.control-panel {
+    position: absolute;
+    left: 10px;
+    top: 2px;
+}
+
+.dropdown-wrapper,
+.dropdown,
+.dropdown-trigger {
+    border: none;
+    background-color: #ddd9d9;
+    opacity: 1;
+}
+
+.control-panel-entry {
+    margin-bottom: 1rem;
+}
+
+.control-panel-entry,
+.control-panel-toggle.yes {
+    font-family: 'Nunito', sans-serif;
+    border: none;
+    background-color: #ddd9d9;
+    opacity: 1;
+    box-shadow: 1.4455px 4.13px 10.325px hsl(332, 27%, 67.94%), -1.4455px -3.13px 10.325px hsl(332, 27%, 90.06%), inset -0.518px -1.48px 5.92px hsl(332, 27%, 67.94%), inset 0.518px 1.48px 5.92px hsl(332, 27%, 90.06%);
+}
+
+.control-panel-toggle.no {
+    border: none;
+    background-color: #000000e4;
+    opacity: 1;
+    box-shadow: 1.4455px 4.13px 10.325px hsl(332, 27%, 67.94%), -1.4455px -3.13px 10.325px hsl(332, 27%, 90.06%), inset -0.518px -1.48px 5.92px hsl(332, 27%, 67.94%), inset 0.518px 1.48px 5.92px hsl(332, 27%, 90.06%);
+}
+
+.control-panel-slider .value {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    height: 26px;
+    border-radius: 1rem;
+    background: var(--box-color);
+    box-shadow: var(--neu-inner), var(--neu-edges-outer);
+    position: relative;
+}
+
+.control-panel-slider .value::before {
+    position: absolute;
+    content: "";
+    width: 92%;
+    height: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--text-color);
+    border-radius: 1rem;
+    z-index: 1;
+}
+
+.control-panel-slider .value::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2rem;
+    height: 2rem;
+    background: var(--box-color);
+    background: linear-gradient(var(--color-gradient));
+    box-shadow: var(--neu-edges), var(--actual-shadow);
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.control-panel-slider .value::-moz-range-thumb {
+    width: 2rem;
+    height: 2rem;
+    background: var(--box-color);
+    box-shadow: inset 1px 1px 3px var(--highlight), inset -1px -1px 3px var(--shadow), 3px 3px 5px var(--shadow);
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.control-panel-fps canvas {
+    background-color: #ffffff;
+    box-shadow: 1.4455px 4.13px 10.325px hsl(332, 27%, 67.94%), -1.4455px -3.13px 10.325px hsl(332, 27%, 90.06%), inset -0.518px -1.48px 5.92px hsl(332, 27%, 67.94%), inset 0.518px 1.48px 5.92px hsl(332, 27%, 90.06%);
+}
+
+.control-panel-toggle.no .value,
+.control-panel-toggle.yes .value {
+    color: #fff;
+}
+
+.output_canvas {
+    width: 100%;
+    display: block;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+.fps-text,
+.fps-30,
+.fps-60,
+.label,
+.dropdown-trigger span,
+.arrow {
+    color: rgb(155 141 141);
+}
+
+.fps-30,
+.fps-60 {
+    left: 6px;
+    transform: scale(0.8);
+}
+
+.control-panel-source-picker .file-selection div {
+    display: none;
+}
+
+.file-selection {
+    display: none;
+}
+
+.video-controls {
+    display: none;
+}
+
+:root {
+    --box-h: 207;
+    --box-s: 15%;
+    --box-l: 80%;
+    --direction: -32deg;
+    --direction-reverse: -212deg;
+    --box-source: calc(var(--box-l) + 10%);
+    --box-dark: calc(var(--box-l) - 15%);
+    --box-light: calc(var(--box-l) + 15%);
+    --text-color: hsl(var(--box-h), var(--box-s), calc(var(--box-l) - 40%));
+    --text-light: hsl(var(--box-h), var(--box-s), calc(var(--box-l) - 25%));
+    --box-color: hsl(var(--box-h), var(--box-s), var(--box-l));
+    --color-dark: hsl(var(--box-h), var(--box-s), var(--box-dark));
+    --color-light: hsl(var(--box-h), var(--box-s), var(--box-light));
+    --color-gradient: var(--direction), var(--color-light), var(--color-dark);
+    --reverse-gradient: var(--direction-reverse), var(--color-light), var(--color-dark);
+    --shadow-x: 3px;
+    --shadow-distance: 3px;
+    --shadow-ramp: 6px;
+    --shadow-color: rgba(0 0 0 / .2);
+    --actual-shadow: var(--shadow-x) var(--shadow-distance) var(--shadow-ramp) var(--shadow-color);
+    --hl-strength: calc(var(--box-l) * 1.2);
+    --shd-strength: calc(var(--box-l) * (1 - (1.2 - 1)));
+    --neu-x: 7.5px;
+    --neu-neg-x: -7.5px;
+    --neu-distance: 7.5px;
+    --neu-neg-dist: -7.5px;
+    --neu-ramp: 18.75px;
+    --highlight: hsl(var(--box-h), var(--box-s), var(--hl-strength));
+    --shadow: hsl(var(--box-h), var(--box-s), var(--shd-strength));
+    --neu-outer: var(--neu-x) var(--neu-distance) var(--neu-ramp) var(--shadow), var(--neu-neg-x) var(--neu-neg-dist) var(--neu-ramp) var(--highlight);
+    --neu-outer-small: var(--neu-x-small) var(--neu-distance-small) var(--neu-ramp-small) var(--shadow), var(--neu-neg-x-small) var(--neu-neg-dist-small) var(--neu-ramp-small) var(--highlight);
+    --neu-inner: inset var(--neu-x) var(--neu-distance) var(--neu-ramp) var(--shadow), inset var(--neu-neg-x) var(--neu-neg-dist) var(--neu-ramp) var(--highlight);
+    --neu-inner-small: inset var(--neu-x-small) var(--neu-distance-small) var(--neu-ramp-small) var(--shadow), inset var(--neu-neg-x-small) var(--neu-neg-dist-small) var(--neu-ramp-small) var(--highlight);
+    --edge-x: 0px;
+    --edge-neg-x: 0px;
+    --edge-dist: 0px;
+    --edge-neg-dist: 0px;
+    --edge-ramp: 0px;
+    --neu-edges: inset var(--edge-neg-x) var(--edge-neg-dist) var(--edge-ramp) var(--shadow), inset var(--edge-x) var(--edge-dist) var(--edge-ramp) var(--highlight);
+    --neu-edges-outer: var(--edge-neg-x) var(--edge-neg-dist) var(--edge-ramp) var(--shadow), var(--edge-x) var(--edge-dist) var(--edge-ramp) var(--highlight);
+    --radius: 1rem;
+    --neu-size: 50%;
+    --neu-radius: 1rem;
+}
+
+@media screen and (width: 1024px) {
+    .control-panel {
+        position: absolute;
+        left: 7px;
+        top: -8px;
+        transform: scale(0.94);
+    }
+}
+
+@media screen and (width: 2560px) {
+    .control-panel {
+        position: absolute;
+        left: 50px;
+        top: 95px;
+        transform: scale(1.4);
+    }
+}
+
+@media screen and (width: 1440px) {
+    .control-panel {
+        position: absolute;
+        left: 15px;
+        top: 13px;
+        transform: scale(1.05);
+    }
+}
