@@ -45,7 +45,7 @@ Compile the code for development and start a local server:
 npm start
 ```
 
-## Responsive ✔️
+## Responsive (But Cam API is not compatible with every mobile devices) ✔️
 
 
 ## Follow me on
