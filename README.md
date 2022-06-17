@@ -4,7 +4,7 @@ A fully self-controlled web application that detects your movements via any plug
 <br>
 <br>        
 <a href="https://houssemlachtar.github.io/Camera-detection/">
-        <img alt="Thumbnail" src="#" />
+        <img alt="Thumbnail" src="./img/BodyDetection.comjpg.jpg" />
     </a>
 <br>
 <a href="https://houssemlachtar.github.io/Camera-detection/">
